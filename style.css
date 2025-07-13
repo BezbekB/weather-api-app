@@ -2,12 +2,9 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
-}
-
-.error-display{
-      color: red;
-
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 600;
+      color: #222;
 }
 
 .container{
@@ -15,15 +12,90 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      background: linear-gradient(135deg, #6dd5fa, #2980b9);
 }
 
 .weather-card{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: #ccc;
-      padding: 50px;
+      background-color: #fff;
+      padding: 40px 60px;
       border-radius: 20px;
-      box-shadow: 0 0 50px 5px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      text-align: center;
 }
+
+.weather-card p, .weather-card h1{
+      margin: 8px 0;
+}
+
+.city-display{
+      font-size: 2.2rem;
+      color: #1a237e;
+      margin-bottom: 10px;
+}
+
+.date-display{
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 5px;
+}
+
+.clock-display{
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1565c0;
+}
+
+.utc-clock-display{
+      font-size: 0.95rem;
+      color: #4a90e2;
+      margin-bottom: 15px;
+}
+
+.weather-description-display{
+      font-style: italic;
+      color: #555;
+      margin-bottom: 10px;
+}
+
+.weather-icon-display{
+      font-size: 3rem;
+      margin: 10px 0;
+}
+
+.wind-speed-display,
+.wind-direction-display,
+.humidity-display,
+.pressure-display,
+.sunrise-display,
+.sunset-display,
+.temperature-display,
+.perceived-temperature-display,
+.country-display {
+    font-size: 1rem;
+    color: #333;
+}
+
+.error-display{
+      color: #d32f2f;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+}
+
+@media (max-width: 400px) {
+    .weather-card {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    .city-display {
+        font-size: 1.8rem;
+    }
+}
+
+
+
+
+
+
 
