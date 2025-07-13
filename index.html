@@ -11,7 +11,11 @@
       <div class="container">
             
             <div class="weather-card">
-                  <p class="error-display">test</p>
+                  <p class="error-display"></p>
+
+                  <p class="date-display"></p>
+                  <p class="clock-display"></p>
+                  <p class="utc-clock-display"></p>
 
                   <p class="country-display"></p>
                   <h1 class="city-display"></h1>
@@ -36,7 +40,10 @@
       </div>
 
       <script>
-            const errorDisplay = document.querySelector(".error-display")
+            const errorDisplay = document.querySelector(".error-display");
+            const dateDisplay = document.querySelector(".date-display");
+            const clockDisplay = document.querySelector(".clock-display");
+            const utcClockDisplay = document.querySelector(".utc-clock-display");
             const countryDisplay = document.querySelector(".country-display");
             const cityDisplay = document.querySelector(".city-display");
             const temperatureDisplay = document.querySelector(".temperature-display");
@@ -51,7 +58,6 @@
             const sunsetDisplay = document.querySelector(".sunset-display");
 
             const API_KEY = "da026bc4ff7d43ff0ec6daf8cce10987";
-
 
 
             function showError(error)
@@ -132,7 +138,32 @@
                   }
             }
 
-            document.addEventListener("DOMContentLoaded", getLocation);
+            function baseInfo()
+            {
+                  const now = new Date();
+
+                  const hours = now.getHours().toString().padStart(2, '0');
+                  const minutes = now.getMinutes().toString().padStart(2, '0');
+
+                  const utcHours = now.getUTCHours().toString().padStart(2, '0');
+                  const utcMinutes = now.getUTCMinutes().toString().padStart(2, '0');
+
+                  const day = now.getDate().toString().padStart(2, '0');
+                  const month = (now.getMonth() + 1).toString().padStart(2, '0');
+                  const year = now.getFullYear();
+
+                  const time = `${hours}:${minutes}`;
+                  const utcTime = `${utcHours}:${utcMinutes}`;
+                  const date = `${day}.${month}.${year}`;
+
+                  clockDisplay.innerHTML = `Czas lokalny: ${time}`;
+                  utcClockDisplay.innerHTML = `Czas UTC: ${utcTime}`;
+                  dateDisplay.innerHTML = date;
+
+                  
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {getLocation(); baseInfo(); setInterval(baseInfo, 1000)});
 
             
       </script>
